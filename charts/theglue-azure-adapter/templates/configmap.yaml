@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.configMap.name }}
+  labels:
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+data:
+  TIMEOUT: "{{ .Values.timeout }}"
+  LOG_LEVEL: {{ .Values.log.level }}
+  LOG_PRETTY_PRINT: "{{ .Values.log.prettyPrint}}"
+  LOG_OUTGOING_CALLS: "{{ .Values.log.outgoingCalls}}"
+  AZURE_BASE_URL: "{{ .Values.azure.baseUrl}}"
+  GRAPH_BASE_URL: "{{ .Values.azure.graphBaseUrl}}"
+  APP_INVITE_REDIRECT_URL: "{{ .Values.azure.appInviteRedirectUrl}}"

@@ -1,0 +1,22 @@
+{
+  "plugins": [
+    "mocha",
+    "chai-expect",
+    "chai-friendly"
+  ],
+  "env": {"mocha":true},
+  "extends": ["airbnb", "prettier"],
+  "rules": {
+    "class-methods-use-this": 0,
+    "no-console": 0,
+    "mocha/no-exclusive-tests": "error"
+  },
+  "overrides": [
+    {
+        "files": ["*.test.js", "*.spec.js"],
+        "rules": {
+            "no-unused-expressions": "off"
+        }
+    }
+  ]
+}

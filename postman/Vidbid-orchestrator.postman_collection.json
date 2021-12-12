@@ -1,0 +1,40 @@
+{
+	"info": {
+		"_postman_id": "b22633bc-df1d-4ef0-97dd-de7121a8f18e",
+		"name": "Vidbid-orchestrator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{ORCHESTRATOR_ENV}}/health",
+					"host": [
+						"{{ORCHESTRATOR_ENV}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get demo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{ORCHESTRATOR_ENV}}",
+					"host": [
+						"{{ORCHESTRATOR_ENV}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
