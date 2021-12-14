@@ -54,19 +54,18 @@ class DemoService {
 
 
   async getAllSubObjectOfDemo(objectId){
-    const allSubObjectsList = await demoDao.getAllSubObjectsByObjectId(objectId)
-    const allSubObjects = {}
-    allSubObjectsList.forEach(obj =>{
-      allSubObjects[obj.obj_key] = obj.obj_value
+    const subObjects = await demoDao.getAllSubObjectsByObjectId(objectId)
+    return subObjects.map(obj => {
+      return {
+        name: obj.name,
+        title: obj.title
+      }
     })
-    return allSubObjects
   }
 
   async createAllSubObjectOfDemo(objectId, subObjectList){
-    console.log(subObjectList)
-    const subObjectKeys = Object.keys(subObjectList);
-    for( const key of subObjectKeys) {
-      await demoDao.createSubObject(objectId, key, subObjectList[key])
+    for( const subObject of subObjectList) {
+      await demoDao.createSubObject(objectId, subObject.name, subObject.title)
     }
   }
 }

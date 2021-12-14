@@ -12,7 +12,6 @@ class DemoDao {
     const sql = `SELECT * FROM object;`;
     try{
       return await query(sql);
-
     }catch (e) {
       console.log(e)
       throw e;
@@ -33,7 +32,6 @@ class DemoDao {
     const sql = `SELECT * FROM sub_object where object_id = ${objectId};`;
     try{
       return await query(sql);
-
     }catch (e) {
       console.log(e)
       throw e;
@@ -49,8 +47,8 @@ class DemoDao {
       throw e;
     }
   }
-  async createSubObject(objectId, key, value) {
-    const sql = `INSERT INTO sub_object (object_id, obj_key, obj_value) VALUES (${objectId}, "${key}", "${value}")`
+  async createSubObject(objectId, name, title) {
+    const sql = `INSERT INTO sub_object (object_id, name, title) VALUES (${objectId}, "${name}", "${title}")`
     try{
       return await query(sql);
 
@@ -61,15 +59,6 @@ class DemoDao {
   }
   async updateObject(id, name) {
     const sql = `UPDATE object set name = "${name}" where id = ${id} `
-    try{
-      return await query(sql);
-    }catch (e) {
-      console.log(e)
-      throw e;
-    }
-  }
-  async updateSubObject(id, objectId, key, value) {
-    const sql = `UPDATE sub_object set object_id = ${objectId} , obj_key = "${key}", obj_value = "${value}" where id =${id} `
     try{
       return await query(sql);
     }catch (e) {
