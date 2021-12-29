@@ -4,8 +4,8 @@ const errorMiddleware = require("../middleware/errorMiddleware");
 
 const apiRouter = express.Router();
 
-apiRouter.use("/network",require('./Network'));
-apiRouter.use("/demo",require('./Demo'));
+apiRouter.use("/pab",require('./Pab'));
+apiRouter.use("/admin",require('./Admin'));
 apiRouter.use(require('./health'));
 
 // API response handling
