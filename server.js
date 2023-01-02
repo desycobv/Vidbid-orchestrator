@@ -1,7 +1,6 @@
 require("dotenv").config();
 
 const express = require('express');
-const apiMetrics = require('prometheus-api-metrics');
 
 const indexRouter = require('./src/routes');
 
@@ -11,7 +10,6 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(apiMetrics());
 
 app.use('/', indexRouter);
 

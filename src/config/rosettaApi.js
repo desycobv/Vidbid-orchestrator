@@ -4,11 +4,12 @@ const { logAxiosRequest, logAxiosResponse } = require("../utils/logger/logger");
 
 const timeout = configuration.timeout();
 
-const cardanoNodeApi = axios.create({
-  baseURL: configuration.cardanoNodeUrl(),
-  timeout
+const rosettaApi = axios.create({
+    baseURL: configuration.rosettaUrl(),
+    timeout
 });
 
+
 module.exports = {
-  cardanoNodeApi
+    rosettaApi
 };

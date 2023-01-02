@@ -1,16 +1,12 @@
 const { logError } = require("../utils/logger/logger");
 const ClientError = require("../utils/ClientError");
-const { BlockFrostAPI } = require("@blockfrost/blockfrost-js");
-
-const API = new BlockFrostAPI({
-  projectId: "testnet7OXo57luqDciae8BBxhoO8K6mqaO7A2L", // see: https://blockfrost.io
-});
+const {blockFrostApi}  = require('../config/blockFrostApi')
 
 class BlockFrostClient {
-  async getNetwork() {
+  async healthcheck() {
     try {
-      const response = await API.health();
-      console.log(response)
+      const response = await blockFrostApi.get("/api/v0/health")
+      return response.data;
     } catch (err) {
       logError(err, "Couldn't perform health check.");
       throw new ClientError("Couldn't perform health check.", 400);

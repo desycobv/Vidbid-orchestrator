@@ -30,10 +30,7 @@
     "optional-require": "^1.0.2",
     "pino": "^6.11.0",
     "pino-pretty": "^4.5.0",
-    "prom-client": "^13.1.0",
-    "prometheus-api-metrics": "^3.1.0",
-    "sinon": "^9.2.4",
-    "winston": "^3.3.3"
+    "sinon": "^9.2.4"
   },
   "devDependencies": {
     "@sentry/node": "^6.1.0",

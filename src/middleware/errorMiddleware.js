@@ -1,10 +1,5 @@
-const Sentry = require("@sentry/node");
-
 const errorMiddleware = (err, req, res, next) => {
     const status = err.status || 500;
-    if (status >= 500 && process.env.SENTRY_ENABLED === "true") {
-        Sentry.captureException(err);
-    }
     if (err.response) {
         // the issue happened in another component. error is just forwarded.
         res.status(err.response.status);
