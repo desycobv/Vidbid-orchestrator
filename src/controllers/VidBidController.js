@@ -10,6 +10,15 @@ class VidBidController {
             next(err);
         }
     }
+    async upload(req, res, next) {
+        try {
+            req.data = await vidBidService.upload(req.body);
+            next();
+        } catch (err) {
+            console.log(err)
+            next(err);
+        }
+    }
 
 }
 
