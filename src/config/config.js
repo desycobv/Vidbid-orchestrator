@@ -1,6 +1,6 @@
 class Configuration {
   blockFrostUrl() {
-    return process.env.BLOCKFROST_API_URL || "https://cardano-testnet.blockfrost.io"
+    return process.env.BLOCKFROST_API_URL || "https://cardano-preprod.blockfrost.io"
   }
   blockFrostKey() {
     return process.env.BLOCKFROST_API_KEY || "preprodLtmKAJvEjCDqePD4XLLpCqciaszcrgI0"

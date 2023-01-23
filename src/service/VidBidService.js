@@ -6,6 +6,9 @@ class VidBidService {
     async healthcheck() {
         // await blockFrostClient.healthcheck();
     }
+    async getTx(addr) {
+        return  blockFrostClient.getTx(addr);
+    }
     async upload({unSignedTx, userChangeAddress, vidDetails}) {
         // await blockFrostClient.healthcheck();
         const vidId = youtubeService.upload(vidDetails)
