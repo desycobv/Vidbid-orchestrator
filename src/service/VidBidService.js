@@ -7,7 +7,9 @@ class VidBidService {
         // await blockFrostClient.healthcheck();
     }
     async getTx(addr) {
-        return  blockFrostClient.getTx(addr);
+        const utxos = await blockFrostClient.getTx(addr);
+        console.log(utxos);
+        return utxos
     }
     async upload({unSignedTx, userChangeAddress, vidDetails}) {
         // await blockFrostClient.healthcheck();
