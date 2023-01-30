@@ -10,15 +10,6 @@ class VidBidController {
             next(err);
         }
     }
-    async getTx(req, res, next) {
-        try {
-            req.data = await vidBidService.getTx(req.params.addr);
-            next();
-        } catch (err) {
-            console.log(err)
-            next(err);
-        }
-    }
     async upload(req, res, next) {
         try {
             req.data = await vidBidService.upload(req.body);

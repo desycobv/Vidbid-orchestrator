@@ -22,6 +22,20 @@ class BlockFrostClient {
       throw new ClientError("Couldn't perform address tx lookup.", 400);
     }
   }
+  async submitTx(signedTx) {
+    try {
+      const response = await blockFrostApi.post(`/api/v0/tx/submit`, signedTx, {
+        headers: {
+          'content-type': 'application/cbor'
+        }
+      });
+      return response.data;
+    } catch (err) {
+      console.log(err)
+      logError(err, "Couldn't submit tx.");
+      throw new ClientError("Couldn't submit tx.", 400);
+    }
+  }
 
 }
 

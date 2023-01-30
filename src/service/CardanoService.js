@@ -1,6 +1,7 @@
 const CardanoWasm = require("@emurgo/cardano-serialization-lib-nodejs");
 const fs = require("fs");
 const walletService = require("./WalletService");
+const blockFrostClient = require("../client/BlockFrostClient");
 
 class CardanoService {
 
@@ -23,8 +24,15 @@ class CardanoService {
       console.log(e)
       throw e;
     }
-
   };
+  async getTx(addr) {
+    return await blockFrostClient.getTx(addr)
+  }
+
+  async submitTx({ signedTx }){
+    console.log(signedTx)
+    return blockFrostClient.submitTx(signedTx)
+  }
 }
 
 module.exports = new CardanoService();
